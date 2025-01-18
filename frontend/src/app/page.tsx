@@ -1,15 +1,10 @@
 import { PostCompanyButton } from "@/components/post-company-button";
+import { CompanyList } from "@/models/companies/components/company-list";
 
-export default async function Home() {
-  const data = await Promise.all([
-    fetch("http://localhost:8787/companies").then((res) => res.json()),
-  ]);
-
-  console.log(JSON.stringify(data, null, 2));
-
+export default function Home() {
   return (
     <div>
-      <div>Hello</div>
+      <CompanyList />
       <PostCompanyButton />
     </div>
   );

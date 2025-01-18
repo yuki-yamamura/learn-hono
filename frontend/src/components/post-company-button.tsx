@@ -9,7 +9,7 @@ export const PostCompanyButton = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: "ch",
+          name: "chch",
         }),
       });
 
