@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { ResponseData } from "@/types/response-data";
+import { ResponseData } from "@/types";
 
 export const employees = new Hono();
 

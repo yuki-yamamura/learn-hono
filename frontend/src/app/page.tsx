@@ -1,4 +1,5 @@
-import { ResponseData } from "@/types/response-data";
+import { PostCompanyButton } from "@/components/post-company-button";
+import { ResponseData } from "@/types";
 
 export default async function Home() {
   const data: ResponseData[] = await Promise.all([
@@ -8,9 +9,12 @@ export default async function Home() {
 
   return (
     <div>
-      {data.map(({ message }, index) => (
-        <div key={index}>{message}</div>
-      ))}
+      <div>
+        {data.map(({ message }, index) => (
+          <div key={index}>{message}</div>
+        ))}
+      </div>
+      <PostCompanyButton />
     </div>
   );
 }
