@@ -1,6 +1,16 @@
-export default async function Home() {
-  const res = await fetch("http://localhost:8787");
-  const { message } = (await res.json()) as { message: string };
+import { ResponseData } from "@/types/response-data";
 
-  return <div>{message}</div>;
+export default async function Home() {
+  const data: ResponseData[] = await Promise.all([
+    fetch("http://localhost:8787/companies").then((res) => res.json()),
+    fetch("http://localhost:8787/employees").then((res) => res.json()),
+  ]);
+
+  return (
+    <div>
+      {data.map(({ message }, index) => (
+        <div key={index}>{message}</div>
+      ))}
+    </div>
+  );
 }
