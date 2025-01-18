@@ -1,9 +1,8 @@
-import { Hono } from "hono";
-import { companies } from "./routes/companies";
-import { employees } from "./routes/employees";
 import { cors } from "hono/cors";
+import { OpenAPIHono } from "@hono/zod-openapi";
+import { companiesRoute } from "./routes/companies";
 
-const app = new Hono();
+const app = new OpenAPIHono();
 
 app.use(
   "*",
@@ -12,7 +11,6 @@ app.use(
   })
 );
 
-app.route("/companies", companies);
-app.route("/employees", employees);
+app.route("/companies", companiesRoute);
 
 export default app;
