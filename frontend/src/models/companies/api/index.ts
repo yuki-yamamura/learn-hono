@@ -1,4 +1,10 @@
-import type { GetCompaniesResponseBodyType } from "@/backend/validators/companies";
+import type {
+  GetCompaniesResponseBodyType,
+  GetCompanyRequestParamsType,
+  GetCompanyResponseBodyType,
+  PostCompanyRequestBodyType,
+  PostCompanyResponseBodyType,
+} from "@/backend/validators/companies";
 
 const getCompanies = async () => {
   const response = await fetch("http://localhost:8787/companies", {
@@ -14,4 +20,33 @@ const getCompanies = async () => {
   return data;
 };
 
-export { getCompanies };
+const getCompany = async (id: GetCompanyRequestParamsType["id"]) => {
+  const response = await fetch(`http://localhost:8787/companies/${id}`, {
+    method: "GET",
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to get company: ${response.status}`);
+  }
+
+  const data = (await response.json()) as GetCompanyResponseBodyType;
+
+  return data;
+};
+
+const postCompany = async (data: PostCompanyRequestBodyType) => {
+  const response = await fetch("http://localhost:8787/companies", {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to post company: ${response.status}`);
+  }
+
+  const responseData = (await response.json()) as PostCompanyResponseBodyType;
+
+  return responseData;
+};
+
+export { getCompanies, getCompany, postCompany };
