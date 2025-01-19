@@ -5,7 +5,7 @@ import { CompanyList } from "@/models/companies/components/company-list";
 export default function Home() {
   return (
     <div>
-      <Company id={"fancy_company"} />
+      <Company id={1} />
       <CompanyList />
       <AddCompanyButton />
     </div>

@@ -1,6 +1,6 @@
 import { cors } from "hono/cors";
 import { OpenAPIHono } from "@hono/zod-openapi";
-import { companiesRoute } from "./routes/companies";
+import { companiesRoute } from "@/api/companies";
 
 const app = new OpenAPIHono();
 

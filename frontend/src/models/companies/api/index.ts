@@ -36,6 +36,9 @@ const getCompany = async (id: GetCompanyRequestParamsType["id"]) => {
 
 const postCompany = async (data: PostCompanyRequestBodyType) => {
   const response = await fetch("http://localhost:8787/companies", {
+    headers: {
+      "Content-Type": "application/json",
+    },
     method: "POST",
     body: JSON.stringify(data),
   });

@@ -6,11 +6,17 @@
   },
   "dependencies": {
     "@hono/zod-openapi": "^0.18.3",
+    "@prisma/adapter-d1": "^6.2.1",
+    "@prisma/client": "^6.2.1",
     "hono": "^4.6.16",
     "zod": "^3.24.1"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250109.0",
+    "prisma": "^6.2.1",
     "wrangler": "^3.101.0"
+  },
+  "prisma": {
+    "schema": "./src/db/schema.prisma"
   }
 }

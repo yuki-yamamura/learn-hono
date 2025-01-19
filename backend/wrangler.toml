@@ -15,10 +15,11 @@ compatibility_date = "2025-01-18"
 # binding = "MY_BUCKET"
 # bucket_name = "my-bucket"
 
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "my-database"
-# database_id = ""
+[[d1_databases]]
+binding = "DB"
+database_name = "learn_hono"
+database_id = "00f3cf5e-d20e-4af0-b544-a51192193b7c"
+migrations_dir = "./src/db/migrations"
 
 # [ai]
 # binding = "AI"
